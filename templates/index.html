@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ session.user_name}} - Ledger
+{% endblock %}
+
+{% block content %}
+<h1><span class="badge badge-secondary" style="margin: 10px;">Total Expenditure Rs.{{total}} <br></span></h1>
+
+<ul class="list-group list-group-flush">
+{% for row,name,dd,mm,canc,product_id in info %}
+<li class="list-group-item">
+<font size=5px>{{name}}</font>
+&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+<b>{{row.cts}}/- </b>&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+    {% if canc %}
+    <!-- Button trigger modal -->
+    
+    
+      
+       
+        <a class="btn btn-seconday" data-toggle="collapse" href="#collapse{{product_id}}" role="button" aria-expanded="false" aria-controls="collapse{{product_id}}">         <button type="button" class="btn btn-secondary" >
+            Cancel
+          </button>
+        </a>
+        
+     
+      <div class="collapse" id="collapse{{product_id}}">
+        <div class="card card-body">
+            
+          <form action="/cancel/{{product_id}}" method="get">
+            Do you want to cancel your order for {{name}} ? &nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-outline-danger" >
+                Cancel Order
+              </button>
+              
+              </form>
+              (Last Cancellation Date : {{dd}}/{{mm}})
+        </div>
+      </div>
+    
+    {% endif %} 
+    </li>
+    <br>
+    
+{% endfor %}
+  </ul>
+
+
+
+
+
+{% endblock %}

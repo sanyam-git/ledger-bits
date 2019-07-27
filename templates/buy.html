@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ session.user_name}} - Ledger
+{% endblock %}
+
+{% block content %}
+
+<br>
+This buy button will take to a third-party service. (ex. Google Form)
+<br>
+		<p>&nbsp;</p>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 mb-3">
+					<input type="text" id="myFilter" class="form-control" onkeyup="myFunction()" placeholder="Search">
+						<br>
+				</div>
+			</div>
+				<div class="row" id="myItems">
+					<div class="col-sm-10 mb-3">
+              {% for product in products %}
+   
+                
+							<div class="card">
+								<div class="card-body">
+									<h5 class="card-title">
+										<a href="#">{{product['name']}}</a>
+									</h5>
+									<h6 class="card-subtitle mb-2 text-muted">Offered By {{product['dept']}}</h6>
+									<p class="card-text">{{product['brief']}}
+										<br>
+											<b>Contact</b> : {{product['contact']}}
+                  </p>
+										<a href="{{product['link']}}">
+											<button type="button" class="btn btn-outline-secondary">Buy Now</button>
+										</a>
+									</div>
+								</div>
+                      {% endfor %}
+              </div>
+						</div>
+					</div>
+
+
+
+{% endblock %}

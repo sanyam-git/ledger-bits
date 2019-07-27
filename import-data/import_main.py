@@ -30,4 +30,18 @@ for product_id,user,cts in reader:
                              "user_id":user_id,
                              "cts":cts})
         db.commit()
-    
+"""
+Input format of CSV file 
+
+headers : product_id, username, cts (cost to student)
+3,test3,40
+4,test2,56
+1,test3,600
+4,f20180372,100
+1,f20180372,50
+2,f20180372,10
+3,f20180372,30
+1,test2,100
+1,test1,100
+4,test1,70
+"""

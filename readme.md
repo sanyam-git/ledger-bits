@@ -6,16 +6,13 @@ Developed using Flask Web Framework
 
 
 
-![](https://i.ibb.co/M1MfJc8/buy.jpg)
 
 
-![](https://imgur.com/f4UkSDt "Manage your expenses")
+![](https://imgur.com/LlYZ6u6.png)
 
 
-![](https://imgur.com/81CLK5M "Buy products and services")
 
 ## Usage
-
 
 
 

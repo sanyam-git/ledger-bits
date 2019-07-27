@@ -57,7 +57,7 @@ def index():
     #selecting the corresponding products details 
     for row in rows:
         temp=db.execute("SELECT name,dd,mm,id FROM product where id = :id",{"id":row.product_id }).fetchone()
-        names.append(temp.name)
+        names.append(str(temp.name))
         dd.append(int(temp.dd))
         mm.append(int(temp.mm))
         product_id.append((temp.id))

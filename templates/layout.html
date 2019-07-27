@@ -4,57 +4,96 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    
+    <!--CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
+    crossorigin="anonymous">
     <link rel="stylesheet" href="../templates/style.css">
 
+    <!--JS-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-    <link rel="icon" href="https://img.icons8.com/ultraviolet/40/000000/us-dollar.png" type="image/gif" sizes="16x16">
+    crossorigin="anonymous"></script>
+    
+    <!--for Search-->
+    <script>
+    function myFunction() 
+    {
+        var input, filter, cards, cardContainer, h5, title, i;
+        input = document.getElementById("myFilter");
+        filter = input.value.toUpperCase();
+        cardContainer = document.getElementById("myItems");
+        cards = cardContainer.getElementsByClassName("card");
+        for (i = 0; i < cards.length; i++) {
+            title = cards[i].querySelector(".card-body h5.card-title");
+            if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+ </script>
+ <!--for search-->
  
- 
-            
+ <!--favicon-->
+ <link rel="icon" href="https://img.icons8.com/ultraviolet/40/000000/us-dollar.png" type="image/gif" sizes="16x16">
     
     <title>{% block title %}{% endblock %}</title>
+
 </head>
 
 <body>
-        <nav class="navbar navbar-light bg-light">
-            <a href="/refresh">
-                <span class="navbar-brand mb-0 h1" >
-                        <span class="badge badge-info" style="font-family:Trebuchet MS;"><font size=6px> ID : {{session.user_name}}</font></span></span>
-            </a>
-                <div style="margin-right:3%;padding: 10px;">
-                <right><a href="/logout">
-                    <button type="button" class="btn btn-info btn-lg" 
+        
+<nav class="navbar navbar-light bg-light">
+    
+    <a href="/">
+		<span class="navbar-brand mb-0 h1" >
+			<span class="badge badge-info" style="font-family:Trebuchet MS;">
+				<font size=6px> ID : {{session.user_name}}</font>
+			</span>
+		</span>
+    </a>
+    
+	<div style="margin-right:3%;padding: 10px;">
+		<right>
+			<a href="/">
+				<button type="button" class="btn btn-secondary btn-lg" 
+                            style="margin-right:20px;padding-top: 10px;
+                                padding-right: 15px;
+                                padding-bottom: 10px;
+                                padding-left: 15px;">My Expenses</button>
+				<a href="/buy">
+					<button type="button" class="btn btn-success btn-lg" 
+                        style="margin-right:20px;padding-top: 10px;
+                            padding-right: 15px;
+                            padding-bottom: 10px;
+                            padding-left: 15px;">Buy a product/service</button>
+				</a>
+				<a href="/logout">
+					<button type="button" class="btn btn-info btn-lg" 
                 style="padding-top: 10px;
                     padding-right: 15px;
                     padding-bottom: 10px;
-                    padding-left: 15px;">Log Out    </button></a></right>
-                </div>
-                
-              </nav>
-        <div>
+                    padding-left: 15px;">Log Out    </button>
+				</a>
+			</right>
+		</div>
+    </nav>
+    
+	<div>
             {% if session.user_id %}
             
             {% else %}
                 
             {% endif %}
         </div>
-    </nav>
-
-    {% if get_flashed_messages() %}
-        <div class="alert alert-info text-center" role="alert">
-            {{ get_flashed_messages() | join(" ") }}
-        </div>
-    {% endif %}
-
-    <main class="container p-5">
+</nav>
+   
+<main class="container p-5">
         {% block content %}
         {% endblock %}
     </main>

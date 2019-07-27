@@ -2,11 +2,11 @@
 
 ### A web based platform where students can keep track and manage their signed products and services.
 
-### Developed using Flask Web Framework
+Developed using Flask Web Framework
 
 
 
-![](https://imgur.com/Vvu3Rlh "Sign In Page")
+![](https://i.ibb.co/M1MfJc8/buy.jpg)
 
 
 ![](https://imgur.com/f4UkSDt "Manage your expenses")

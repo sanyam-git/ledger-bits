@@ -23,4 +23,17 @@ for username, password in reader:
         db.execute("INSERT INTO users (username, hash) VALUES (:username, :pass)",
                     {"username": username, "pass": password })
         db.commit()
+"""
+input format to add users
+
+headers : username,password(saved in hashed form)
+test1,aezakmi@123
+test2,311001
+test3,#"123
+f20180372,ipcpilani
+
+
+note : As this web app is developed for BITS Pilani Campus only.Registration option is not provided to user directly.
+Users will be added by this method and then they can update their passwords.
+"""
 

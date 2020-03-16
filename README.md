@@ -1,4 +1,4 @@
-# BITS Ledger
+# Student Ledger
 
 ### A web based platform where students can keep track and manage their signed products and services.
 
